@@ -5,16 +5,17 @@ import Float "mo:base/Float";
 import Time "mo:base/Time";
 
 actor DBank{
-    stable var balance: Float=400;
-    // Debug.print(debug_show(balance));
+    stable var balance: Float=300;
+    // balance := 300;
     Debug.print(debug_show(balance));
     stable var startTime = Time.now();
+    Debug.print(debug_show(startTime));
 
     let id= 1234;
     // Debug.print(debug_show(id));
     public func topUp(amount : Float){
         balance += amount;
-        // Debug.print(debug_show(balance));
+        Debug.print(debug_show(balance));
     };
     public func withdraw(amount: Float){
         let tempValue: Float = balance - amount;
@@ -36,8 +37,8 @@ actor DBank{
     public func compoundInterest(){
         let currentTime = Time.now();
         let timeElapsedNs = currentTime-startTime;
-        let timeElapsedS = timeElapsedNs/1000000000;
-        balance := balance*(1.01**Float.fromInt(timeElapsedS));
+        let timeElapsedHundredS = timeElapsedNs/100000000000;
+        balance := balance*(1.01**Float.fromInt(10));
         startTime := currentTime;
     }
 }
