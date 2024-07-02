@@ -6,7 +6,7 @@ import Time "mo:base/Time";
 
 actor DBank{
     stable var balance: Float=300;
-    // balance := 300;
+    balance := 300;
     Debug.print(debug_show(balance));
     stable var startTime = Time.now();
     Debug.print(debug_show(startTime));

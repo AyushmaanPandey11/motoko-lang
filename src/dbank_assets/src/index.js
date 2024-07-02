@@ -8,10 +8,10 @@ async function update(){
 }
 
 window.addEventListener("load", async function(){
-    await update();
+     update();
 })
 
-document.getElementById("form").addEventListener("submit", async function(event){
+document.querySelector("form").addEventListener("submit", async function(event){
     event.preventDefault();
     const button = event.target.querySelector("#submit-btn");
     //getting the input value from the user 
